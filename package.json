@@ -1,19 +1,22 @@
 {
-    "name": "typescript-template",
+    "name": "typestack-vhost",
     "version": "1.0.0",
-    "description": "",
+    "description": "Express vhost but with support for typestack routing-controllers",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
-        "build": "tsc --build"
+        "build": "tsc --build",
+        "prepublishOnly": "npm run lint && npm run build",
+        "lint": "eslint src/**/* --fix --quiet"
     },
     "keywords": [
         "typescript",
         "node"
     ],
     "author": "Theo Paris",
-    "license": "UNLICENSE",
+    "license": "MIT",
     "devDependencies": {
+        "@types/express": "^4.17.8",
         "@types/node": "^14.11.2",
         "@typescript-eslint/eslint-plugin": "^4.3.0",
         "@typescript-eslint/parser": "^4.3.0",
@@ -22,5 +25,10 @@
         "eslint-plugin-prettier": "^3.1.4",
         "prettier": "^2.1.2",
         "typescript": "^4.0.3"
+    },
+    "dependencies": {
+        "@throw-out-error/regbuild": "gitlab:throw-out-error/regbuild",
+        "express": "^4.17.1",
+        "routing-controllers": "^0.9.0-alpha.6"
     }
 }
